@@ -56,8 +56,6 @@ Fingerprint::Fingerprint(std::shared_ptr<FingerprintConfig> config)
             mUdfpsHandler = mUdfpsHandlerFactory->create();
             if (!mUdfpsHandler) {
                 ALOGE("Can't create UdfpsHandler");
-            } else {
-                mUdfpsHandler->init(mDevice);
             }
         }
     } else if (sensorTypeProp == "side") {

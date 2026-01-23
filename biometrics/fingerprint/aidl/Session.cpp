@@ -30,6 +30,10 @@ Session::Session(fingerprint_device_t* device, UdfpsHandler* udfpsHandler, int u
       mUdfpsHandler(udfpsHandler) {
     mDeathRecipient = AIBinder_DeathRecipient_new(onClientDeath);
 
+    if (!mUdfpsHandler) {
+        mUdfpsHandler->init(mDevice);
+    }
+
     auto path = std::format("/data/vendor_de/{}/fpdata/", userId);
     mDevice->set_active_group(mDevice, mUserId, path.c_str());
 }
