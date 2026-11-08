@@ -86,7 +86,6 @@ constexpr SupportList<SessionMode> kSessionModeEarliestVersion = {
   {SessionMode::GRAPHICS_PIPELINE, 6},
   {SessionMode::AUTO_CPU, 6},
   {SessionMode::AUTO_GPU, 6},
-  {SessionMode::AUDIO_PERFORMANCE, 7},
 };
 
 constexpr SupportList<SessionTag> kSessionTagEarliestVersion {
@@ -218,8 +217,6 @@ bool SupportManager::sessionModeSupported(SessionMode type) {
         case SessionMode::POWER_EFFICIENCY:
             return false;
         case SessionMode::GRAPHICS_PIPELINE:
-            return false;
-        case SessionMode::AUDIO_PERFORMANCE:
             return false;
         default:
             return true;
